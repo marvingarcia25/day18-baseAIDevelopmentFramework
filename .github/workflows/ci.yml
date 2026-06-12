@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Build
+        run: dotnet build backend --configuration Release
+      - name: Test (no API keys needed — uses FakeLlmProvider)
+        run: dotnet test backend --configuration Release --no-build
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install
+        run: npm ci
+        working-directory: frontend
+      - name: Typecheck + build
+        run: npm run build
+        working-directory: frontend
+
+  # Evals run on demand (they cost tokens). Add ANTHROPIC_API_KEY to repo secrets to enable.
+  # evals:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-dotnet@v4
+  #       with:
+  #         dotnet-version: "8.0.x"
+  #     - run: dotnet run --project backend/src/AIFramework.Evals -- backend/src/AIFramework.Evals/datasets/sample.jsonl contains
+  #       env:
+  #         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

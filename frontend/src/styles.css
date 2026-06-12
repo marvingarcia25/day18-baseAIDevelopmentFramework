@@ -1,0 +1,208 @@
+:root {
+  color-scheme: light dark;
+  --accent: #b45309;
+  --border: color-mix(in srgb, currentColor 18%, transparent);
+  --surface: color-mix(in srgb, currentColor 5%, transparent);
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.health {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+nav {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--border);
+  margin: 0.75rem 0 1.25rem;
+}
+
+nav button {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.5rem 0.9rem;
+  font: inherit;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+nav button.active {
+  border-bottom-color: var(--accent);
+  opacity: 1;
+  font-weight: 600;
+}
+
+button {
+  font: inherit;
+}
+
+main button:not(nav button) {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+}
+
+main button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+textarea,
+input {
+  width: 100%;
+  font: inherit;
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  margin-bottom: 0.5rem;
+}
+
+textarea {
+  min-height: 3.2rem;
+  resize: vertical;
+}
+
+textarea.tall {
+  min-height: 7rem;
+}
+
+.composer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.composer textarea {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.message {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  background: var(--surface);
+}
+
+.message.user {
+  border-left: 3px solid var(--accent);
+}
+
+.role {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  margin: 0.25rem 0 0;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.step {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+}
+
+.step.tool {
+  background: var(--surface);
+}
+
+.step.answer {
+  border-left: 3px solid var(--accent);
+}
+
+.step code {
+  display: block;
+  margin: 0.25rem 0;
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.85rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.65;
+}
+
+.hint {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 0.9rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}

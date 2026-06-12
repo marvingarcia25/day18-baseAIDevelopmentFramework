@@ -1,0 +1,21 @@
+# .NET
+backend/**/bin/
+backend/**/obj/
+*.user
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Eval outputs
+backend/**/datasets/*.results.json
+
+# Secrets — never commit keys; use environment variables
+.env
+.env.*
+appsettings.*.Local.json
+
+# Editors / OS
+.vs/
+.idea/
+.DS_Store

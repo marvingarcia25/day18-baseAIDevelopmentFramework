@@ -1,0 +1,4 @@
+{"id": "capital-france", "input": "What is the capital of France? Answer with just the city name.", "expected": "Paris"}
+{"id": "basic-arithmetic", "input": "What is 17 * 23? Answer with just the number.", "expected": "391"}
+{"id": "spanish-greeting", "input": "How do you say 'good morning' in Spanish? Answer with just the phrase.", "expected": "Buenos días"}
+{"id": "concise-summary", "input": "In one sentence, what does HTTP stand for and what is it used for?", "expected": "HyperText Transfer Protocol"}
